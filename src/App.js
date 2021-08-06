@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css"
+import Profile from "./pages/Profile";
+import Home from "./pages/Home";
+import Repositories from "./pages/Repositories";
+import { BrowserRouter, Switch, NavLink, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <ul>
+        <NavLink activeStyle={{ color: "red" }} to="/home">
+          Home
+        </NavLink>
+        <br />
+        <NavLink activeStyle={{ color: "red" }} to="/repositories">
+          Users
+        </NavLink>
+      </ul>
+      <Switch>
+        <Route path="/home" component={Home}></Route>
+        <Route path="/profile" component={Profile}></Route>
+        <Route path="/repositories" component={Repositories}></Route>
+        <Route path="*">No match</Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
