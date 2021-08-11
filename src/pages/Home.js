@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
-import { selectRepositoriesItems } from "../store/repositories/selectors";
-import "./Repositories.css";
+import { selectUsersItems } from "../store/users/selectors";
+import "./Users.css";
 
 const Home = () => {
-  const items = useSelector(selectRepositoriesItems);
+  const items = useSelector(selectUsersItems);
 
   return (
     <>
-      <div className="repositories">
+      <div className="users">
         <h5> У нас зарегистрировано {items.length} пользователей</h5>
       </div>
     </>

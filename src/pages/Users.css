@@ -1,29 +1,29 @@
-.repositories {
+.users {
   padding: 25px;
   margin: 10px;
 }
 
-.repositories-item {
+.users-item {
   border: 1.5px solid black;
   width: 25%;
   padding: 10px;
   margin-bottom: 10px;
 }
 
-.repositories-item:hover {
+.users-item:hover {
   border: 2px solid red;
 }
 
-.repositories-item__header {
+.users-item__header {
   display: flex;
   align-items: center;
 }
 
-.repositories-item__title {
+.users-item__title {
   margin-right: 10px;
 }
 
-.repositories-item__owner img {
+.users-item__owner img {
   padding-top: 20px;
   border-radius: 50%;
   width: 50px;

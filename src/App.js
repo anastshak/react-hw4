@@ -1,10 +1,20 @@
 import "./App.css"
-import Profile from "./pages/Profile";
 import Home from "./pages/Home";
-import Repositories from "./pages/Repositories";
+import Users from "./pages/Users";
+import User from "./pages/User";
 import { BrowserRouter, Switch, NavLink, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchUsers } from "./store/users/actions";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, []);
+
+
   return (
     <BrowserRouter>
       <ul>
@@ -12,14 +22,14 @@ function App() {
           Home
         </NavLink>
         <br />
-        <NavLink activeStyle={{ color: "red" }} to="/repositories">
+        <NavLink activeStyle={{ color: "red" }} to="/users">
           Users
         </NavLink>
       </ul>
       <Switch>
         <Route path="/home" component={Home}></Route>
-        <Route path="/profile" component={Profile}></Route>
-        <Route path="/repositories" component={Repositories}></Route>
+        <Route path="/users" component={Users}></Route>
+        <Route path="/user/:id" component={User}></Route>
         <Route path="*">No match</Route>
       </Switch>
     </BrowserRouter>
